@@ -30,7 +30,7 @@ def get_vacancy_salary(url):
         vaca_sal.append(soup.find('h1', class_='bloko-header-1').text)
         t_salary = soup.find('span', class_='bloko-header-2').text
         vaca_sal.append(
-            2 * int(re.sub(r'[\s]+|[^\d]+', '', t_salary).strip()),
+            int(re.sub(r'[\s]+|[^\d]+', '', t_salary).strip()),
         )
     return vaca_sal
 
