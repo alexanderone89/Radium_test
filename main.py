@@ -25,7 +25,7 @@ def get_vacancy_salary(url):
 
     res = requests.get(url, headers=headers)
     vaca_sal = []
-    if (res.status_code) == '200':
+    if int(res.status_code) == int('200'):
         soup = BeautifulSoup(res.text, 'html.parser')
         vaca_sal.append(soup.find('h1', class_='bloko-header-1').text)
         t_salary = soup.find('span', class_='bloko-header-2').text
@@ -51,7 +51,7 @@ async def print_text(end_delay, text):
 async def main():
     """Главная функция."""
     vac_sal = get_vacancy_salary(
-        'https://taganrog.hh.ru/vacancy/50927402',
+        'https://hh.ru/vacancy/51992559',
     )
     timeout_sec = 5
     if vac_sal:
